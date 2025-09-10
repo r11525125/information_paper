@@ -9,10 +9,12 @@
 目錄結構：
 - `data/`：放置測試用 LiDAR 檔（已放入一個小樣本 `sample_0000000000.bin`）
 - `outputs/`：壓縮結果（CSV 與檔案）輸出位置
+- `scripts/EBpapercopy2.py`：EB-HC、EB-3D(EB-Octree)、EB-HC-3D 演算法完整實作（已自包含）
 - `scripts/run_subset_experiments.py`：最小可重現壓縮實驗（使用 3 個方法族共 6 個方法，少量 BE 值）
 - `scripts/ipfs_batch.py`：（可選）批次將壓縮檔上傳至 IPFS 並寫入鏈上（Ganache）
+- `scripts/tsn_generate_flows.py`：（可選）將壓縮結果 CSV 轉成 TSN 流量規格（供 tsnkit 使用）
 
-注意：為避免冗大，EB 演算法完整實作仍使用您電腦上的原始檔 `下載/KITTI/EBpapercopy2.py`。本專案的腳本以動態匯入方式使用該檔案的演算法函式。若您希望此專案完全自包含，可將該檔複製到 `scripts/` 目錄下。
+本專案已自包含演算法檔：`scripts/EBpapercopy2.py`。若要改回使用原始位置的檔案，可自行調整 `run_subset_experiments.py` 的載入邏輯。
 
 ## 1. 先決條件
 - Python 3.8+，且建議安裝：numpy、scipy、bitarray、matplotlib、pandas、ipfshttpclient、web3、py-solc-x（若使用 IPFS/鏈）。
@@ -53,7 +55,7 @@ python scripts/run_subset_experiments.py \
   --be-list 0.5 1.0 2.0
 ```
 
-若您將 `下載/KITTI/EBpapercopy2.py` 複製到 `scripts/`，腳本會優先從本地載入；否則會從 `下載/KITTI/` 相對路徑載入。
+已內建 `scripts/EBpapercopy2.py`，`run_subset_experiments.py` 會優先載入本地版本。
 
 ## 4.（可選）上傳 IPFS 並寫入鏈上
 會針對 `outputs/` 內的壓縮檔逐一：
@@ -73,6 +75,17 @@ python scripts/ipfs_batch.py \
 - 將 `outputs/compression_results_subset.csv` 取出每檔案的 `Num Packets` 與平均封包大小（或位元率）作為高優先級流量；
 - 在 tsnkit 內設定 802.1Qbv 的 GCL 週期與時槽，預留高優先級窗，其餘為低優先級；
 - 観察端到端延遲與抖動，並比較不同 BE（壓縮率）下的可排程性。
+
+也可使用本專案提供的轉換器，直接生成 TSN 流量規格 CSV：
+```bash
+python scripts/tsn_generate_flows.py \
+  --results-csv outputs/compression_results_subset.csv \
+  --data-dir data \
+  --frame-rate 10 \
+  --packet-size-bits 1000 \
+  --out outputs/tsn_flows.csv
+```
+欄位包含 `Bitrate_bps / PacketsPerFrame / PacketSize_bits / Priority` 等，可作為 tsnkit 的輸入來源。
 
 ## 6. Git 初始化與推送
 本專案已在本機初始化 Git。若要推送至 GitHub：
@@ -94,4 +107,3 @@ git push -u origin main
 - 找不到 `EBpapercopy2.py`：請確認它存在於 `下載/KITTI/`，或直接複製到 `scripts/`。
 - 缺套件：依步驟 2 安裝相依套件。
 - IPFS/鏈連線失敗：請確認本機 IPFS daemon 與 Ganache 正在執行，連線位址與埠正確。
-
