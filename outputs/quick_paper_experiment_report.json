@@ -1,0 +1,34 @@
+{
+  "experiment_info": {
+    "title": "Quick Paper Experiment Validation",
+    "timestamp": "2025-09-24T02:23:13.239752",
+    "duration_seconds": 72.81717252731323,
+    "dataset": "KITTI (Original)",
+    "scope": "Quick validation with limited files"
+  },
+  "compression_results": {
+    "files_tested": 5,
+    "methods_tested": 7,
+    "best_method": "EB-HC-3D(Axis)",
+    "best_compression_ratio": 0.2451401636370528,
+    "bandwidth_savings_percent": 75.48598363629472,
+    "avg_quality_iou": 0.8989385192408909
+  },
+  "tsn_results": {
+    "flows_simulated": 65,
+    "avg_delay_ms": 2.006331503969231,
+    "feasible_flows": 65,
+    "feasibility_rate_percent": 100.0
+  },
+  "ipfs_results": {
+    "files_uploaded": 4,
+    "total_size_mb": 0.019867897033691406,
+    "success_rate_percent": 100.0
+  },
+  "key_findings": {
+    "compression_effective": true,
+    "tsn_feasible": true,
+    "ipfs_functional": true,
+    "integration_successful": true
+  }
+}

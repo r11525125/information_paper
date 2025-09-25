@@ -1,0 +1,49 @@
+{
+  "experiment": "完整KITTI LiDAR壓縮實驗",
+  "timestamp": "20250924_225250",
+  "lidar_specs": {
+    "frame_rate": 10,
+    "frame_period_ms": 100,
+    "avg_frame_size_mb": 1.88
+  },
+  "dataset": {
+    "total_files": 1140,
+    "total_size_gb": 2.09,
+    "scenes": [
+      "campus",
+      "city",
+      "person",
+      "residential",
+      "road"
+    ]
+  },
+  "compression": {
+    "records": 175,
+    "best_method": "EB-HC-3D(Axis)",
+    "best_ratio": 0.26046675944658243,
+    "methods": {
+      "EB-HC(Axis)": 0.3414993690491903,
+      "EB-HC(L2)": 0.34812675692741957,
+      "EB-HC-3D(Axis)": 0.26046675944658243,
+      "EB-HC-3D(L2)": 0.2604678932777441,
+      "EB-Octree(Axis)": 0.5508819207583706,
+      "EB-Octree(L2)": 0.5437005458013026,
+      "Huffman": 0.6515098348818222
+    }
+  },
+  "tsn": {
+    "uncompressed_latency_ms": 17.791999999999998,
+    "uncompressed_utilization_%": 15.039999999999997,
+    "best_compressed_method": "EB-HC(Axis)",
+    "best_compressed_latency_ms": 10.892958036024812,
+    "best_compressed_utilization_%": 5.136150510499822,
+    "latency_increase_ms": -6.899041963975186,
+    "utilization_reduction_%": 9.903849489500175
+  },
+  "ipfs": {
+    "best_method": "EB-HC-3D(Axis)",
+    "best_storage_savings_%": 73.95332405534177,
+    "best_upload_time_savings_%": 73.95332405534177,
+    "annual_storage_gb_saved": 214087.9400160842
+  }
+}

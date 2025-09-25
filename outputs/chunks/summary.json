@@ -1,0 +1,125 @@
+{
+  "best_by_be": [
+    {
+      "Method": "Huffman",
+      "BE (cm)": 0.0,
+      "Compression Ratio": 0.651807935184251
+    },
+    {
+      "Method": "EB-HC-3D(Axis)",
+      "BE (cm)": 0.5,
+      "Compression Ratio": 0.2898702213175458
+    },
+    {
+      "Method": "EB-HC-3D(Axis)",
+      "BE (cm)": 1.0,
+      "Compression Ratio": 0.26012418052992203
+    },
+    {
+      "Method": "EB-HC-3D(Axis)",
+      "BE (cm)": 2.0,
+      "Compression Ratio": 0.2314075408234688
+    }
+  ],
+  "scene_compression": [
+    {
+      "DatasetScene": "campus",
+      "AvgCompressedBytes": 543292.2666666666,
+      "AvgRawBytes": 1971842.4,
+      "AvgCompressionRatio": 0.2755251164033237,
+      "Samples": 80
+    },
+    {
+      "DatasetScene": "city",
+      "AvgCompressedBytes": 504632.79999999993,
+      "AvgRawBytes": 1951732.0,
+      "AvgCompressionRatio": 0.2585425979060878,
+      "Samples": 80
+    },
+    {
+      "DatasetScene": "person",
+      "AvgCompressedBytes": 480281.7004830917,
+      "AvgRawBytes": 2011455.536231884,
+      "AvgCompressionRatio": 0.2387867377398375,
+      "Samples": 69
+    },
+    {
+      "DatasetScene": "residential",
+      "AvgCompressedBytes": 494108.9333333333,
+      "AvgRawBytes": 1993302.6,
+      "AvgCompressionRatio": 0.2479103699324534,
+      "Samples": 80
+    },
+    {
+      "DatasetScene": "road",
+      "AvgCompressedBytes": 540528.2999999999,
+      "AvgRawBytes": 1952344.0,
+      "AvgCompressionRatio": 0.276922182284271,
+      "Samples": 80
+    }
+  ],
+  "scene_packets": [
+    {
+      "DatasetScene": "campus",
+      "AvgCompressedBytes": 543292.2666666666,
+      "AvgPackets": 3260.3125
+    },
+    {
+      "DatasetScene": "city",
+      "AvgCompressedBytes": 504632.79999999993,
+      "AvgPackets": 3028.3
+    },
+    {
+      "DatasetScene": "person",
+      "AvgCompressedBytes": 480281.7004830917,
+      "AvgPackets": 2882.1739130434785
+    },
+    {
+      "DatasetScene": "residential",
+      "AvgCompressedBytes": 494108.9333333333,
+      "AvgPackets": 2965.1
+    },
+    {
+      "DatasetScene": "road",
+      "AvgCompressedBytes": 540528.2999999999,
+      "AvgPackets": 3243.6875
+    }
+  ],
+  "tsn_results": [
+    {
+      "flow": 0,
+      "DatasetScene": "campus",
+      "deliveries": 1,
+      "AvgDelay_ns": 4351300.0,
+      "AvgJitter_ns": 0.0
+    },
+    {
+      "flow": 1,
+      "DatasetScene": "city",
+      "deliveries": 1,
+      "AvgDelay_ns": 4351300.0,
+      "AvgJitter_ns": 0.0
+    },
+    {
+      "flow": 2,
+      "DatasetScene": "person",
+      "deliveries": 1,
+      "AvgDelay_ns": 4351300.0,
+      "AvgJitter_ns": 0.0
+    },
+    {
+      "flow": 3,
+      "DatasetScene": "residential",
+      "deliveries": 1,
+      "AvgDelay_ns": 4351300.0,
+      "AvgJitter_ns": 0.0
+    },
+    {
+      "flow": 4,
+      "DatasetScene": "road",
+      "deliveries": 1,
+      "AvgDelay_ns": 4351300.0,
+      "AvgJitter_ns": 0.0
+    }
+  ]
+}

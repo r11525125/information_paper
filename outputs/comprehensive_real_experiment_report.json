@@ -1,0 +1,28 @@
+{
+  "experiment_timestamp": "2025-09-24T02:12:12.057478",
+  "experiment_type": "Real_Comprehensive_LiDAR_TSN_IPFS",
+  "compression_analysis": {
+    "total_methods_tested": 57,
+    "best_compression_method": "EB-HC-3D(Axis)",
+    "best_compression_ratio": 0.2451401636370528,
+    "max_bandwidth_savings_%": 75.48598363629472,
+    "best_be_value": 2.0
+  },
+  "tsn_analysis": {
+    "total_flows_simulated": 57,
+    "average_delay_ms": 2.3210952325438594,
+    "tsn_feasibility_%": 100.0,
+    "max_network_utilization_%": 10.4242971
+  },
+  "ipfs_analysis": {
+    "total_files_uploaded": 29,
+    "total_data_size_mb": 9.550058364868164,
+    "average_upload_time_s": 0.2634498859273976,
+    "estimated_annual_savings_hours": 2307.821000724003
+  },
+  "integrated_benefits": {
+    "end_to_end_latency_improvement_%": 97.67890476745615,
+    "storage_efficiency_%": 75.48598363629472,
+    "network_efficiency_%": 93.5980953491228
+  }
+}

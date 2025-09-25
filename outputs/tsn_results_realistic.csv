@@ -1,0 +1,6 @@
+flow,DatasetScene,deliveries,AvgDelay_ns,AvgJitter_ns,Priority_Class,Compression_Enabled,Packets_Transmitted,Method_Used
+0,campus,1,28562898.10259216,10913.719905122944,ClassA_Safety,True,2537,EB-HC-3D(Axis)
+1,city,1,31869395.251338862,10166.613205209545,ClassA_Safety,True,2537,EB-HC-3D(Axis)
+2,person,1,29128715.07046908,13805.573368916064,ClassA_Safety,True,2537,EB-HC-3D(Axis)
+3,residential,1,31564948.647008758,13078.245324860382,ClassA_Safety,True,2537,EB-HC-3D(Axis)
+4,road,1,29967515.025798894,11266.986617017546,ClassA_Safety,True,2537,EB-HC-3D(Axis)

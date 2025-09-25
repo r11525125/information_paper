@@ -29,9 +29,16 @@ def resolve_eb_module():
 
 
 def load_bin_paths(data_dir: str, max_files: int) -> List[str]:
-    files = [os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith('.bin')]
+    """Recursively collect .bin files under data_dir (sorted)."""
+    files: List[str] = []
+    for root, _, fnames in os.walk(data_dir):
+        for name in fnames:
+            if name.endswith('.bin'):
+                files.append(os.path.join(root, name))
     files.sort()
-    return files[:max_files]
+    if max_files > 0:
+        return files[:max_files]
+    return files
 
 
 def write_csv(rows: List[Dict], out_csv: str, fieldnames: List[str]):
@@ -259,4 +266,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -1,0 +1,74 @@
+{
+  "network_topology": {
+    "switches": [
+      "TSN_Switch_1"
+    ],
+    "end_stations": [
+      "LiDAR",
+      "Camera_ECU",
+      "Radar_ECU",
+      "Compute_Unit"
+    ],
+    "links": [
+      {
+        "from": "LiDAR",
+        "to": "TSN_Switch_1",
+        "bandwidth_mbps": 1000
+      },
+      {
+        "from": "TSN_Switch_1",
+        "to": "Compute_Unit",
+        "bandwidth_mbps": 1000
+      }
+    ]
+  },
+  "streams": {
+    "LiDAR_Flow": {
+      "source": "LiDAR",
+      "destination": "\u611f\u77e5\u878d\u5408\u6a21\u7d44",
+      "period_ms": 100,
+      "frame_size_bytes": 1880000,
+      "deadline_ms": 50,
+      "priority": "Critical",
+      "bandwidth_mbps": 150.4
+    },
+    "Camera_Flow": {
+      "source": "Camera\u00d74",
+      "destination": "\u611f\u77e5\u878d\u5408\u6a21\u7d44",
+      "period_ms": 33.3,
+      "frame_size_bytes": 2073600,
+      "deadline_ms": 20,
+      "priority": "Critical",
+      "bandwidth_mbps": 497.7
+    },
+    "Radar_Flow": {
+      "source": "Radar\u00d78",
+      "destination": "\u611f\u77e5\u878d\u5408\u6a21\u7d44",
+      "period_ms": 50,
+      "frame_size_bytes": 10240,
+      "deadline_ms": 30,
+      "priority": "High",
+      "bandwidth_mbps": 1.6
+    }
+  },
+  "schedule": {
+    "cycle_time_us": 100000,
+    "time_slots": [
+      {
+        "stream": "LiDAR_Flow",
+        "start_us": 0,
+        "duration_us": 15000
+      },
+      {
+        "stream": "Camera_Flow",
+        "start_us": 15000,
+        "duration_us": 50000
+      },
+      {
+        "stream": "Radar_Flow",
+        "start_us": 65000,
+        "duration_us": 5000
+      }
+    ]
+  }
+}

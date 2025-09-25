@@ -15,8 +15,15 @@ def read_results_csv(path):
 
 def bin_bits(data_dir, filename):
     fp = os.path.join(data_dir, filename)
-    size = os.path.getsize(fp)  # bytes
-    return size * 8
+    if os.path.exists(fp):
+        size = os.path.getsize(fp)
+        return size * 8
+    # fallback: search recursively for first matching filename
+    for root, _, files in os.walk(data_dir):
+        if filename in files:
+            size = os.path.getsize(os.path.join(root, filename))
+            return size * 8
+    raise FileNotFoundError(f"{filename} not found under {data_dir}")
 
 
 def main():
@@ -82,4 +89,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

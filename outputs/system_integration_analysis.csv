@@ -1,0 +1,10 @@
+Metric,Traditional_System,Integrated_Framework,Improvement
+Bandwidth_Utilization_Mbps,157.44,39.36,75.0%
+Storage_Cost_USD_per_GB_month,0.023,0.058,Cost increase offset by 75% data reduction
+IPFS_vs_CloudStorage_Cost,0.15,0.058,61.3% cost reduction
+Network_Latency_Target_ms,10.0,4.35,56.5% improvement
+Data_Integrity_Guarantee,Centralized,Decentralized_Blockchain,100% CID success rate
+Scalability_Vehicles,Limited,Distributed,Supports multi-vehicle scenarios
+Privacy_Protection,Server-based,Smart_Contract,Enhanced privacy
+Real_time_Determinism,Best_effort,TSN_guaranteed,Deterministic scheduling
+End_to_End_Efficiency,Isolated_components,Integrated_pipeline,Holistic optimization

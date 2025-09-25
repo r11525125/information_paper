@@ -1,0 +1,31 @@
+{
+  "experiment": "公平KITTI實驗 - 所有場景",
+  "timestamp": "2025-09-24T22:04:12.974713",
+  "execution_time_seconds": 124.2566545009613,
+  "dataset": {
+    "total_files": 1140,
+    "total_size_gb": 2.09,
+    "scenes": [
+      "campus",
+      "city",
+      "person",
+      "residential",
+      "road"
+    ]
+  },
+  "compression": {
+    "records": 105,
+    "best_method": "EB-HC-3D(Axis)",
+    "best_ratio": 0.26050380173960896
+  },
+  "tsn": {
+    "configurations": 40,
+    "avg_latency_ms": 6.343703276504871,
+    "min_latency_ms": 2.7455547474747477,
+    "feasibility_rate": 100.0
+  },
+  "ipfs": {
+    "configurations": 40,
+    "avg_storage_savings": 57.759955329551694
+  }
+}

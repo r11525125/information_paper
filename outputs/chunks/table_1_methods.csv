@@ -1,0 +1,8 @@
+Method,Summary,Time complexity
+Huffman,Frequency-based byte encoding (baseline),O(N)
+EB-HC (Axis),Cluster along axes + Huffman,O(N log N)
+EB-HC (L2),Cluster in Euclidean distance + Huffman,O(N log N)
+EB-3D (Axis),Octree subdivision (axis-aligned),O(N × depth)
+EB-3D (L2),Octree subdivision (L2-bound),O(N × depth)
+EB-HC-3D (Axis),Octree + Huffman hybrid (axis),O(N × depth)
+EB-HC-3D (L2),Octree + Huffman hybrid (L2),O(N × depth)

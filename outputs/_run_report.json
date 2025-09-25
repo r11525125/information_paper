@@ -1,0 +1,37 @@
+{
+  "compression_rows": 7391,
+  "scene_summary": true,
+  "scene_packets": true,
+  "tsn_results": true,
+  "tsn_task": true,
+  "tsn_schedule_files": [
+    "lidar_lidar-DELAY.csv",
+    "lidar_lidar-GCL.csv",
+    "lidar_lidar-OFFSET.csv",
+    "lidar_lidar-QUEUE.csv",
+    "lidar_lidar-ROUTE.csv",
+    "lidar_manual-GCL.csv",
+    "lidar_manual-OFFSET.csv",
+    "lidar_manual-QUEUE.csv",
+    "lidar_manual-ROUTE.csv"
+  ],
+  "ipfs_entries": true,
+  "cid_entries": true,
+  "reports": [
+    "chain_success_rate.txt",
+    "fig_cr_be0.0.png",
+    "fig_cr_be0.5.png",
+    "fig_cr_be1.0.png",
+    "fig_cr_be2.0.png",
+    "fig_tsn_delay.png",
+    "fig_tsn_jitter.png",
+    "inserts",
+    "report_en.md",
+    "report_zh.md",
+    "summary.json",
+    "table_1_methods.csv",
+    "table_chain_cid_tx.csv",
+    "tex"
+  ],
+  "package": true
+}

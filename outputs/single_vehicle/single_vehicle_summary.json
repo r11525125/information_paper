@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-09-24T02:02:26.805887",
+  "vehicle_config": {
+    "frame_rate_hz": 10,
+    "frame_size_mb": 2.0,
+    "daily_hours": 12
+  },
+  "key_findings": {
+    "max_bandwidth_savings_%": 79.0,
+    "best_compression_method": "EB-HC-3D(L2)",
+    "max_storage_savings_%": 79.0,
+    "latency_improvement_%": 81.7201646090535,
+    "tsn_feasible_methods": [
+      "Uncompressed",
+      "Huffman",
+      "EB-HC(Axis)",
+      "EB-HC(L2)",
+      "EB-HC-3D(Axis)",
+      "EB-HC-3D(L2)"
+    ]
+  }
+}

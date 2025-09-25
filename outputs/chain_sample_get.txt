@@ -1,0 +1,3 @@
+"Qmabz5RQPaTwAxqqqYSuVc9p6R7te6VPkwmYVPcrPv5Eyu"
+"outputs/chunks/compression_results_full.csv"
+1758550902 [1.758e9]

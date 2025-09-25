@@ -1,0 +1,9 @@
+# Python build cache
+__pycache__/
+*.py[cod]
+
+# Local virtual environments
+.venv/
+
+# Large binary point cloud frames
+*.bin
