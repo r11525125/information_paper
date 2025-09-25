@@ -87,7 +87,110 @@ python scripts/tsn_generate_flows.py \
 ```
 欄位包含 `Bitrate_bps / PacketsPerFrame / PacketSize_bits / Priority` 等，可作為 tsnkit 的輸入來源。
 
-## 6. Git 初始化與推送
+## 6. 完整實驗腳本
+
+### 6.1 快速測試腳本
+用於驗證環境設定與流程是否正常：
+
+```bash
+./quick_test_experiment.sh
+```
+
+- 僅測試 2 個場景（campus、city）
+- 每個場景測試 3 個檔案
+- 執行時間約 1 分鐘
+- 用於驗證壓縮、TSN、IPFS 流程
+
+### 6.2 完整論文實驗腳本
+使用全部 1140 個 KITTI LiDAR 檔案進行完整實驗：
+
+```bash
+./run_full_paper_experiment.sh
+```
+
+#### 實驗流程：
+1. **數據集驗證**：掃描並驗證 KITTI 數據集完整性
+2. **壓縮實驗**：對所有 1140 個檔案執行 7 種壓縮方法
+3. **TSN 分析**：計算網路利用率與延遲
+4. **IPFS 分析**：評估儲存空間與上傳時間節省
+5. **生成報告**：產生完整 JSON 格式實驗報告
+
+#### 輸出檔案：
+- `outputs/compression_results_full_*.csv` - 所有壓縮測試結果
+- `outputs/tsn_flows_*.csv` - TSN 流量配置
+- `outputs/tsn_results/tsn_analysis_*.csv` - TSN 性能分析
+- `outputs/ipfs_results/ipfs_analysis_*.csv` - IPFS 儲存分析
+- `outputs/final_report_*.json` - 完整實驗報告
+
+#### 執行時間：
+- 完整實驗預計需要 30-60 分鐘（取決於硬體性能）
+- 實驗結束後會詢問是否刪除壓縮產生的暫存檔案
+
+### 6.3 自訂實驗參數
+若要調整實驗參數，可編輯腳本中的變數：
+
+```bash
+# 編輯腳本
+vim run_full_paper_experiment.sh
+
+# 可調整參數：
+MAX_FILES=-1        # 每個場景的檔案數（-1 表示全部）
+BE_LIST="1.0"       # 誤差界限值（cm）
+DAILY_HOURS=12      # 每日運行時數（用於 IPFS 計算）
+UPLOAD_SPEED=10     # 上傳速度（Mbps，用於 IPFS 計算）
+```
+
+### 6.4 實驗結果驗證
+執行以下命令檢查實驗結果：
+
+```bash
+# 查看壓縮統計
+python3 -c "
+import pandas as pd
+df = pd.read_csv('outputs/compression_results_full_*.csv')
+print(df.groupby('Method')['Compression Ratio'].agg(['mean', 'std', 'count']))
+"
+
+# 查看最終報告
+python3 -c "
+import json
+with open('outputs/final_report_*.json', 'r') as f:
+    report = json.load(f)
+    print(json.dumps(report, indent=2))
+"
+```
+
+## 7. 實驗數據說明
+
+### 7.1 KITTI 數據集結構
+```
+/home/adlink/下載/KITTI/KITTI/
+├── campus/      (186 檔案, 0.34 GB)
+├── city/        (108 檔案, 0.20 GB)
+├── person/      (68 檔案, 0.13 GB)
+├── residential/ (481 檔案, 0.89 GB)
+└── road/        (297 檔案, 0.53 GB)
+總計: 1140 檔案, 2.09 GB
+```
+
+### 7.2 LiDAR 規格（Velodyne HDL-64E）
+- **更新頻率**: 10 Hz（每秒 10 個 frame）
+- **Frame 定義**: 1 個 frame = 360° 完整掃描 = 1 個 .bin 檔案
+- **平均 Frame 大小**: 1.88 MB
+- **數據率**: 150.4 Mbps
+
+### 7.3 壓縮方法比較
+| 方法 | 平均壓縮比 | 處理延遲(ms) |
+|------|-----------|-------------|
+| EB-HC-3D(Axis) | 0.2605 | 5.2 |
+| EB-HC-3D(L2) | 0.2605 | 6.1 |
+| EB-HC(Axis) | 0.3415 | 3.5 |
+| EB-HC(L2) | 0.3481 | 4.1 |
+| EB-Octree(Axis) | 0.5509 | 5.0 |
+| EB-Octree(L2) | 0.5437 | 5.0 |
+| Huffman | 0.6515 | 2.8 |
+
+## 8. Git 初始化與推送
 本專案已在本機初始化 Git。若要推送至 GitHub：
 
 ```bash
@@ -103,7 +206,7 @@ git push -u origin main
 
 > 若環境無法直接連網或缺少權杖，請在本機終端自行執行上述命令並輸入 GitHub 個人存取權杖（PAT）。
 
-## 7. 常見問題
+## 9. 常見問題
 - 找不到 `EBpapercopy2.py`：請確認它存在於 `下載/KITTI/`，或直接複製到 `scripts/`。
 - 缺套件：依步驟 2 安裝相依套件。
 - IPFS/鏈連線失敗：請確認本機 IPFS daemon 與 Ganache 正在執行，連線位址與埠正確。
